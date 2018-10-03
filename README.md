@@ -1,5 +1,8 @@
 # wasm-sample
 
+## Requirement
+  Go 1.11 or above
+
 ## Build wasm
 
 ```shell
