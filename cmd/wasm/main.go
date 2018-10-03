@@ -17,8 +17,9 @@ func subtract(i []js.Value) {
 }
 
 func trigger() {
+	loc := time.FixedZone("AEDT", 10*60*60) // can't use time.LoadLocation(name) because this function hasn't been implemented in js
 	for {
-		js.Global().Get("document").Call("getElementById", "timer").Set("textContent", time.Now().Format("2006/01/02 15:04:05"))
+		js.Global().Get("document").Call("getElementById", "timer").Set("textContent", time.Now().In(loc).Format("2006-01-02 15:04:05 MST"))
 		time.Sleep(1 * time.Second)
 	}
 }
