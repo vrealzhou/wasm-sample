@@ -4,6 +4,7 @@ GO=$(shell which go)
 
 wasm:
 	mkdir -p build/web
+	cp web/* build/web/
 	GOARCH=wasm GOOS=js $(GO) build -o build/web/lib.wasm cmd/wasm/main.go
 
 run:
